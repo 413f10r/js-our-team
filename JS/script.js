@@ -48,25 +48,28 @@ se volete sentirvi parte del team! */
 
 const teamCard = document.querySelector('.cardContainer')
 
-const teamContainer = document.querySelector('.team-container')
-
-function cicloAddMembers(){
+function cicloAddMembers() {
   for (let i = 0; i < teamMembers.length; i++) {
     let element = teamMembers[i]
-  
-    teamContainer.innerHTML += `
-    <div class="team-card">
-            <div class="card-image">
-              <img src='img/${element.image}' alt="${element.name}" />
-            </div>
-            <div class="card-text">
-              <h3>${element.name}</h3>
-              <p>${element.role}</p>
-            </div>
-          </div>
+
+    cardContainer.innerHTML += `
+     <div class="card d-flex flex-row  bg-dark  text-light p-2 px-3 my-3">
+
+      <img  style="max-width: 216px; max-height: 216px; object-fit: cover; min-height: 216px;" src='${element.img}' class="p-2 rounded" alt="imgProfilo">
+
+      <div class="card-body d-flex flex-column lh-lg align-items-center">
+
+        <h5 class="card-title my-2">${element.name}</h5>
+        <span class="card-text my-2">${element.role}</span>
+        <span class="card-text my-2">${element.email}</span>
+
+      </div>
+
+    </div>
+
     
     `
-  
+
   }
 }
 
@@ -76,21 +79,22 @@ cicloAddMembers()
 
 const btn = document.getElementById('btn')
 
-btn.addEventListener('click', function (event) {
+btn.addEventListener('click'), function (event) {
   event.preventDefault()
   const name = document.getElementById('name').value
   const role = document.getElementById('role').value
   const image = document.getElementById('image').value
+}
 
-  teamMembers.push(
-    {
-      name,
-      role,
-      image
-    }
-  )
+teamMembers.push(
+  {
+    name,
+    role,
+    image
+  }
+)
 
-  console.log( teamMembers )
+console.log(teamMembers)
 
 
 
